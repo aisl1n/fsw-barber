@@ -9,21 +9,21 @@ import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form"
 
 const formSchema = z.object({
-  search: z.string().trim().min(1, { message: "Digite algo para buscar" }),
+  title: z.string().trim().min(1, { message: "Digite algo para buscar" }),
 })
 
 const Search = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      search: "",
+      title: "",
     },
   })
   const router = useRouter()
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    const { search } = data
-    router.push(`/barbershops?search=${search}`)
+    const { title } = data
+    router.push(`/barbershops?title=${title}`)
   }
 
   return (
@@ -31,7 +31,7 @@ const Search = () => {
       <form onSubmit={form.handleSubmit(handleSubmit)} className="flex gap-2">
         <FormField
           control={form.control}
-          name="search"
+          name="title"
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
