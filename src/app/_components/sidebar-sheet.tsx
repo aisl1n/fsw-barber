@@ -60,7 +60,7 @@ const SidebarSheet = () => {
                   onClick={handleLoginWithGoogleClick}
                 >
                   <Image
-                    src="./google.svg"
+                    src="./googleIcon.svg"
                     height={18}
                     width={18}
                     alt="Fazer login com Google"
